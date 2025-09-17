@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Irriga-sched</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+    <button id="instructionBtn">Click for Instructions</button>
+
+  <div class="info-box">
+    <strong>This Smart Irrigation Scheduling utilizes</strong><br>
+    the Crop evapotranspiration under soil water distress<br><br>
+    <strong>ET<sub>c</sub> = K<sub>s</sub> × K<sub>c</sub> × ET<sub>o</sub></strong><br><br>
+    where:<br>
+    ET<sub>c</sub> = Crop Evapotranspiration<br>
+    K<sub>s</sub> = Water Stress Coefficient<br>
+    K<sub>c</sub> = Crop Coefficient
+  </div>
+
+  <table>
+    <tr><th>Days</th><th>Water depth <br> requirement (cm)</th></tr>
+    <tr><td>1-30</td>
+    <td>3 cm</td></tr>
+    <tr><td>31-33</td>
+    <td>1 cm</td></tr>
+    <tr><td>34-95</td>
+    <td>5 cm</td></tr>
+    <tr><td>96-120</td>
+    <td>5 cm</td></tr>
+  </table>
+  <div class="centerColumn">
+    <h1>Irri-Go!</h1>
+    <h2>Irrigation Scheduling Optimization<br>(Soil and Weather Data)</h2>
+  </div>
+
+  <div class="form-container">
+    <div class="panel">
+      <label for="plantingDate">Planting Date:</label>
+      <input type="date" id="plantingDate" />
+      <div class="output" id="outputText"></div>
+      <p>Note: must be 7 days after planting date</p>
+      
+    <label for="cropSelect">Select location:</label>
+     <select id="cropSelect">
+     <option value="">-- Select a Location --</option>
+     <option value="24">Bayongan</option>
+     <option value="84">Garcia</option>
+     <option value="15">Bugang</option>
+     <option value="17">Hagbuyo</option>
+     <option value="26">Cabangahan</option>
+     <option value="27">Poblacion (San Miguel)</option>
+     <option value="57">Camanaga</option>
+     <option value="40">San Jose </option>
+     <option value="146">Caluasan</option>
+     <option value="65">San Isidro (San Miguel)</option>
+     <option value="16">Cambangay Norte</option>
+     <option value="27">San Vicente (San Miguel)</option>
+     <option value="50">Capayas</option>
+     <option value="105">Sto. Nino</option>
+     <option value="15">Corazon</option>
+     <option value="133">Tomoc</option>
+
+     <option value="5">Achilla</option>
+     <option value="20">Bay-ang</option>
+     <option value="19">Benliw</option>
+     <option value="38">Biabas</option>
+     <option value="145">Bong-Bong</option>
+     <option value="23">Bood</option>
+     <option value="34">Buenavista</option>
+     <option value="34">Bulilis</option>
+     <option value="5">Cagting</option>
+     <option value="29">Calanggaman</option>
+     <option value="28">California</option>
+     <option value="22">Camalian</option>
+     <option value="11">Camambugan</option>
+     <option value="12">Casate</option>
+     <option value="22">Cuya</option>
+     <option value="9">Fatima</option>
+     <option value="31">Gabi</option>
+     <option value="23">Governor Boyles</option>
+     <option value="27">Guintabo-an</option>
+     <option value="27">Hambabauran</option>
+     <option value="9">Humay-humay</option>
+     <option value="27">Ilihan</option>
+     <option value="61">Imelda</option>
+     <option value="18">Juagdan</option>
+     <option value="10">Katarungan</option>
+     <option value="70">Lomangog</option>
+     <option value="30">Los Angeles</option>
+     <option value="23">Pag-asa</option>
+     <option value="7">Pangpang</option>
+     <option value="6">Poblacion (Ubay)</option>
+     <option value="30">San Franscisco</option>
+     <option value="8">San Isidro (Ubay)</option>
+     <option value="93">San Pascual</option>
+     <option value="22">San Vicente (Ubay)</option>
+     <option value="5">Sentinila</option>
+     <option value="21">Sinandigan</option>
+     <option value="7">Tapal</option>
+     <option value="5">Tapon</option>
+     <option value="1">Tintinan</option>
+     <option value="13">Tipolo</option>
+     <option value="9">Tubog</option>
+     <option value="12">Tuboran</option>
+     <option value="26">Union</option>
+     <option value="27">Villa Teresita</option>
+
+     <option value="52">Banlasan</option>
+     <option value="19">Bongbong (trinidad)</option>
+     <option value="9">Catoogan</option>
+     <option value="13">Guinobatan</option>
+     <option value="4">Hinlayagan Ilaud</option>
+     <option value="14">Hinlayagan Ilaya</option>
+     <option value="112">Kauswagan</option>
+     <option value="28">Kinan-oan</option>
+     <option value="15">La Union</option>
+     <option value="10">La Victoria</option>
+     <option value="12">Mabuhay Cabigohan</option>
+     <option value="10">Mahagbu</option>
+     <option value="9">Manuel M. Roxas</option>
+     <option value="3">Poblacion (trinidad)</option>
+     <option value="44">San Isidro (Trinidad)</option>
+     <option value="25">San Vicente (Trinidad)</option>
+     <option value="34">Santo Thomas</option>
+     <option value="11">Soom</option>
+     <option value="8">Tagum Norte</option>
+     <option value="8">Tagum Sur</option>
+     </select>
+
+      <label>Water level (cm): <input type="number" id="Q" /></label>
+    </div>
+     <div id="dapBox" class="dap-box"></div>
+    <div class="centerColumn">
+      <button class="buttonsagwapo" onclick="calculateScheduling()">Calculate Scheduling</button>
+    </div>
+  </div>
+
+  <div class="centerColumn" style="margin-top: 18px; width: 100%;">
+    <div class="item" style="padding:12px;">
+      <h2>14-Day Weather Forecast</h2>
+      <div class="weather-container" id="forecast">
+        <p class="loading">Loading forecast...</p>
+      </div>
+    </div>
+  </div>
+  
+    <div id="result" class="result-box" aria-live="polite"></div>
+    <div id="error" class="error-box" ></div>  
+    <button id="langToggle" style="position:absolute;top:10px;right:20px;padding:12px 18px;font-weight:bold;border-radius:8px;">Cebuano</button>
+    <script src="script.js"></script>
+</body>
+</html>

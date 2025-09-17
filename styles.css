@@ -1,0 +1,275 @@
+body {
+      font-family: 'Times New Roman', Times, serif;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      margin: 40px;
+      background-color: #3592e4;
+      background-image: url('https://live.staticflickr.com/4556/37815129934_7ede988b0e_b.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      position: relative;
+    }
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgb(255, 255, 255, 0.8);
+      z-index: -1;
+    }
+    h2 { color: #000000; }
+    .centerColumn {
+      text-align: center;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+    .form-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+      position: relative;
+      z-index: 2;
+    }
+    input, label { margin: 5px 0; display: block; }
+    .result-box {
+      top: 0px;
+      right: 0px;
+      position: absolute;
+      max-height: 70vh;  
+      background: rgba(255, 255, 255, 0.95);
+      padding: 15px 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      max-width: 240px;
+      font-size: 18px;
+      line-height: 1.4em;
+      white-space: pre-wrap;
+    }
+    #result { margin-top: 50px; margin-bottom: 20px; font-weight: bold; 
+    }
+    .item { background: rgb(255, 255, 255, 0.5); padding: 5px 10px; border-radius: 4px; 
+    }
+    .weather-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 15px;
+      padding: 10px;
+      scroll-behavior: smooth;
+    }
+    .weather-container::-webkit-scrollbar { 
+      height: 8px;
+     }
+    .weather-container::-webkit-scrollbar-thumb { 
+      background: #888;
+       border-radius: 4px;
+     }
+    .day-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 12px;
+      width: 200px;
+      flex: 0 0 auto;
+      text-align: center;
+    }
+    .day-card img { width: 64px; height: 64px; 
+    }
+    .loading { font-size: 1.2em; 
+    }
+    .info-box {
+      position: absolute;
+      top: 50px;
+      left: 15px;
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      max-width: 300px;
+      font-size: 14px;
+      line-height: 1.4em;
+    }
+    .buttonsagwapo {
+      background-color: #00aaff;
+      color: #000;
+      font-weight: bold;
+      padding: 12px 18px;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.2s ease-in-out;
+     }
+     .buttonsagwapo:hover { 
+      background-color: #ffffff;
+       transform: scale(1.05); 
+      }
+      .error-box {
+      position: absolute;
+      top: 50px;
+      right: 0px;
+      color: red;
+      font-weight: bold;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 10px 14px;
+      border-radius: 8px;
+      max-width: 320px;
+    }
+
+     .panel { 
+      position: relative;
+     font-size: 20px;
+     padding: 20px; 
+     }
+
+     .panel label { 
+      display: block;
+       margin: 10px 0; 
+     }
+
+     .panel input { font-size: 18px; padding: 10px; width: 250px; 
+     }
+
+     table {
+      position: absolute;
+      border-collapse: collapse;
+      top: 300px;
+      left: 15px;
+      width: 280px;
+      background: white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+     }
+     .collapsible {
+     background-color: #004d80;
+     color: white;
+     cursor: pointer;
+     padding: 10px;
+     border: none;
+     text-align: left;
+     outline: none;
+     font-size: 16px;
+     border-radius: 6px;
+     margin-top: 10px;  
+     }
+     .dap-box {
+    
+     margin-top: 15px;
+     padding: 12px 16px;
+     background: rgba(255, 255, 255, 0.95);
+     border-radius: 10px;
+     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+     font-size: 15px;
+     font-weight: bold;
+     text-align: center;
+     max-width: 400px;
+    }
+
+    .active, .collapsible:hover {
+     background-color: #006bb3;
+    }
+    #langToggle {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  width: 120px;
+  height: 40px;
+  background-color: #00aaff;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#langToggle:hover {
+  background-color: #ffffff;
+  color: #00aaff;
+  transform: scale(1.05);
+}
+
+#langToggle.active {
+  background-color: #ffaa00;
+  color: #000;
+}
+     .content {
+     padding: 10px;
+     display: none;
+     overflow: hidden;
+     background-color: rgba(255,255,255,0.95);
+     border-radius: 6px;
+     margin-top: 5px;
+     max-height: 400px;
+     overflow-y: auto;
+     white-space: pre-line;
+     }
+    th, td { border: 1px solid black; padding: 10px; text-align: center; }
+    th { background-color: #41b6ff; }
+    #instructionBtn {
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      background-color: #ffcc00;
+      color: #000;
+      font-weight: bold;
+      padding: 12px 18px;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      cursor: pointer;
+      font-size: 16px;
+      z-index: 1000;
+      transition: 0.2s ease-in-out;
+    }
+    #cropSelect, #cropSelect + button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#cropSelect {
+  padding: 8px 12px;
+  border: 2px solid #333;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+#cropSelect + button {
+  margin-left: 8px;
+}
+
+#cropResult {
+  margin-top: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+    #instructionBtn:hover { 
+      background-color: #41b6ff;
+      transform: scale(1.05);
+     }
+    @media (max-width: 800px) {
+      .result-box { left: 8px;
+       right: 8px;
+       top: auto;
+       position: relative;
+       max-width: none;
+       }
+    table { 
+      display: none;
+     }
+    }
